@@ -3,7 +3,8 @@ import sys
 import numpy as np
 import pandas as pd
 
-f = open("F:/Descargas/ERIC2025-04-22_07.43.26.nbib")
+file = str(input("Please, enter the NBIB file to convert to CSV: "))
+f = open(file)
 
 read = f.readlines()
 lines = []
@@ -53,5 +54,6 @@ for i in lines:
 print(total)
 
 df = pd.DataFrame(total)
-df.to_csv("F:/Descargas/converted.csv", index=False)
+out_file = file.replace(".nbib", ".csv")
+df.to_csv(out_file, index=False)
 
